@@ -4,7 +4,7 @@ const DEFAULT_EXCLUDED_METHODS = ['constructor'];
 
 export function RunOutsideAngular(config?: Config): ClassDecorator {
   return function(constructor: any) {
-    const excludedMethods = config ? [...DEFAULT_EXCLUDED_METHODS, ...config.exclude] : DEFAULT_EXCLUDED_METHODS;
+    const excludedMethods = config ? [...new Set([...DEFAULT_EXCLUDED_METHODS, ...config.exclude])] : DEFAULT_EXCLUDED_METHODS;
     const methods = Object.getOwnPropertyNames(constructor.prototype);
 
     methods.forEach(method => {
