@@ -1,0 +1,25 @@
+{
+  "name": "run-outside-angular",
+  "version": "0.0.1",
+  "description": "RunOutsideAngular is Angular class decorator that wrap all class methods on ngZone.runOutsideAngular()",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/podkovyrovda/run-outside-angular.git"
+  },
+  "keywords": [
+    "angular",
+    "decorator",
+    "runOutsideAngular"
+  ],
+  "author": "Andrey Podkovyrov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/podkovyrovda/run-outside-angular/issues"
+  },
+  "typings": "./dist/index.d.ts",
+  "homepage": "https://github.com/podkovyrovda/run-outside-angular#readme",
+  "devDependencies": {
+    "typescript": "^3.7.5"
+  }
+}

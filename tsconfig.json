@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "dist/index.ts",
+    "module": "commonjs",
+    "target": "es5",
+    "lib": ["es6", "dom", "es2017"],
+    "sourceMap": true,
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  },
+  "include": ["src/*"],
+  "exclude": ["node_modules", "src/*.test.ts"]
+}
