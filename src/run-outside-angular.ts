@@ -1,22 +1,6 @@
-interface Config {
-  exclude?: string[];
-}
-
-const DEFAULT_EXCLUDED_METHODS = [
-  'constructor',
-  'ngOnChanges',
-  'ngOnInit',
-  'ngDoCheck',
-  'ngAfterContentInit',
-  'ngAfterContentChecked',
-  'ngAfterViewInit',
-  'ngAfterViewChecked',
-  'ngOnDestroy',
-];
-
-function throwError(targetName) {
-  throw new Error(`Add '_ngZone: NgZone' in constructor class ${targetName}`);
-}
+import { Config } from './models';
+import { DEFAULT_EXCLUDED_METHODS } from './constants';
+import { throwError } from './throw-error';
 
 export function RunOutsideAngular(config?: Config): ClassDecorator {
   return function(constructor: any) {
