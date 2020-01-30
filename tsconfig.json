@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
-    "outDir": "dist/index.ts",
-    "module": "commonjs",
+    "module": "es2015",
     "target": "es5",
-    "lib": ["es6", "dom", "es2017"],
+    "noImplicitAny": false,
     "sourceMap": true,
-    "declaration": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "declaration": true,
+    "outDir": "dist/",
+    "lib": ["dom", "es2015", "es2017"]
   },
-  "include": ["src/*"],
-  "exclude": ["node_modules", "src/*.test.ts"]
+  "exclude": ["node_modules", "lib", "__tests__"]
 }
