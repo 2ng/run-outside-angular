@@ -2,6 +2,33 @@ import { Config } from './models';
 import { DEFAULT_EXCLUDED_METHODS } from './constants';
 import { throwError } from './throw-error';
 
+/**
+  An Angular class decorator that wrap all class methods excluding
+  constructor and Angular lifecycle methods on ngZone.runOutsideAngular().
+  Add method names which should be excluded in config.
+
+  ```ts
+  import { RunOutsideAngular } from 'run-outside-angular'
+
+  @RunOutsideAngular({
+    exclude: ['yo']
+  })
+  @Component({...})
+   export class ExampleComponent {
+    // _ngZone must be in constructor class
+    constructor(private _ngZOne: NgZone)
+
+    yo() {
+        // will be runned in Angular Zone
+    }
+
+     hoho() {
+        // will be runned out Angular Zone
+    }
+   }
+  ```
+  @Annotation
+ */
 export function RunOutsideAngular(config?: Config): ClassDecorator {
   return function(constructor: any) {
     const excludedMethods = config ? [...DEFAULT_EXCLUDED_METHODS, ...config.exclude] : DEFAULT_EXCLUDED_METHODS;
