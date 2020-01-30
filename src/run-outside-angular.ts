@@ -1,6 +1,18 @@
-import { Config } from './config.interface';
+interface Config {
+  exclude?: string[];
+}
 
-const DEFAULT_EXCLUDED_METHODS = ['constructor'];
+const DEFAULT_EXCLUDED_METHODS = [
+  'constructor',
+  'ngOnChanges',
+  'ngOnInit',
+  'ngDoCheck',
+  'ngAfterContentInit',
+  'ngAfterContentChecked',
+  'ngAfterViewInit',
+  'ngAfterViewChecked',
+  'ngOnDestroy',
+];
 
 export function RunOutsideAngular(config?: Config): ClassDecorator {
   return function(constructor: any) {
