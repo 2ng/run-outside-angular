@@ -14,6 +14,10 @@ const DEFAULT_EXCLUDED_METHODS = [
   'ngOnDestroy',
 ];
 
+function throwError(targetName) {
+  throw new Error(`Add '_ngZone: NgZone' in constructor class ${targetName}`);
+}
+
 export function RunOutsideAngular(config?: Config): ClassDecorator {
   return function(constructor: any) {
     const excludedMethods = config ? [...DEFAULT_EXCLUDED_METHODS, ...config.exclude] : DEFAULT_EXCLUDED_METHODS;
@@ -24,11 +28,8 @@ export function RunOutsideAngular(config?: Config): ClassDecorator {
         const original = constructor.prototype[method];
 
         constructor.prototype[method] = function(...args: string[]) {
-          try {
-            return this._ngZone.runOutsideAngular(() => original.apply(this, args));
-          } catch {
-            throw new Error(`Add '_ngZone: NgZone' in constructor class ${constructor.name}`);
-          }
+          if (!this._ngZone) throwError(constructor.name);
+          return this._ngZone.runOutsideAngular(() => original.apply(this, args));
         };
       }
     });
