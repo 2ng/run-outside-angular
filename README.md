@@ -1,6 +1,6 @@
 # @RunOutsideAngular
 
-An **Angular** class decorator that wrap all class methods on ngZone.runOutsideAngular(). Add method names which should be excluded in config.
+An **Angular** class decorator that wrap all class methods excluding constructor and Angular lifecycle methods on ngZone.runOutsideAngular(). Add method names which should be excluded in config.
 
 ```
 npm i run-outside-angular
@@ -16,7 +16,7 @@ import { RunOutsideAngular } from 'run-outside-angular';
 export class ExampleComponent {
     // _ngZone must be in constructor class
     constructor(private _ngZOne: NgZone)
-    
+
     yo() {
         // will be runned in Angular Zone
     }

@@ -1,6 +1,6 @@
 {
   "name": "run-outside-angular",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "RunOutsideAngular is Angular class decorator that wrap all class methods on ngZone.runOutsideAngular()",
   "main": "dist/index.js",
   "repository": {
